@@ -1,0 +1,21 @@
+#black{
+    color: black;
+}
+.sharp {
+    border-radius:0;
+}
+* {
+    border-radius: 0 !important;
+    /* makes all buttons have sharp edges */
+}
+table, th, td {
+    border: 0.10em solid black;
+    font-size: 1.25em;
+}
+#pad{
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+}
+#dbpad{
+    padding-left: 1.5em;
+}

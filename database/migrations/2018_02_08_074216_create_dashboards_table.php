@@ -14,8 +14,12 @@ class CreateDashboardsTable extends Migration
     public function up()
     {
         Schema::create('dashboards', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+            $table->bigIncrements('id');
+            $table->bigInteger('user_id');
+            $table->integer('priority');
+            $table->string('task_name');
+            $table->date('date');
+            $table->time('time');
         });
     }
 
