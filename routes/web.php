@@ -38,3 +38,14 @@ Route::get('home/task/{id}', function($id){
     // $task = Task::find('id');
     return view('tasks.show',compact('tasks'));
 });
+
+
+// Edit task
+
+Route::get('home/task/{id}', function($id){
+    $tasks = DB::table('tasks')->find($id);
+    // $task = Task::find('id');
+
+    
+    return view('tasks.show',compact('tasks'));
+});
