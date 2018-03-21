@@ -1,0 +1,50 @@
+.body{
+  padding: 0%;
+  margin: 0;
+  background-image: url("octo.jpg");
+  width: 97%;
+  height: 1200px;
+  border: 20px solid;
+  border-color: #7493A4;
+  background-repeat: repeat;
+  background-position: center;
+}
+
+
+.rectangle {
+  background-color: #AFC4CF;
+  height: 150px;
+  width: 99.4%;
+  border-bottom: 15px solid;
+  border-color: #7493A4;
+  padding-left: 10px;
+  bottom: 10px;
+  border-top: 15px solid #AFC4CF;
+}
+
+
+.btn-group button {
+    background-color: #60ADD4; /* blue background */
+    border: 1px solid white; /* Black border */
+    color: white; /* White text */
+    padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    float: left; /* Float the buttons side by side */
+}
+
+.btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.btn-group button:not(:last-child) {
+    border-right: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+    background-color: #3e8e41;
+}
+</style>
+<body>
