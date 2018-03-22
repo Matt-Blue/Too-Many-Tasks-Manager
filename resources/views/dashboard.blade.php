@@ -112,7 +112,11 @@
                         <div class="col-xs-1">
                             <td>
                                 <!-- Delete button -->
-                                <center><a href="{{ url('/delete/'.$task->id) }}"><span class="glyphicon glyphicon-remove" style="color:black; font-size: 0.75em;" id="pad"></span></a></center>
+                                <?php if(session('delete_id') == $task->id){ ?>
+                                    <center><a href="{{ url('/delete/'.$task->id) }}"><span class="glyphicon glyphicon-remove-circle " style="color:black; font-size: 0.75em;" id="pad"></span></a></center>
+                                <?php }else{ ?>
+                                    <center><a href="{{ url('/delete_check/'.$task->id) }}"><span class="glyphicon glyphicon-remove" style="color:black; font-size: 0.75em;" id="pad"></span></a></center>
+                                <?php } ?>
                             </td>
                         </div>
                         <div class="col-xs-1">

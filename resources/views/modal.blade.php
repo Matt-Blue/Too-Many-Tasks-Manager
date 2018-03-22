@@ -74,7 +74,7 @@
           }
         ?>
         <!-- EDIT TASK FORM -->
-    {!! Form::open(['route' => 'edit_task']) !!}
+    {!! Form::open(['route' => 'do_edit_task']) !!}
 
 <div class="form-group">
     {!! Form::label('task_name', 'Task Name') !!}
