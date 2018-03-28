@@ -80,6 +80,11 @@ h5 {
     font-size: 16px;
 }
 
+h6 {
+  font-size: 36px;
+  color: #FFF !important;
+}
+
 a {
     color: #6195FF;
     text-decoration: none;
@@ -207,7 +212,7 @@ input[type="text"], input[type="email"], input[type="password"], input[type="num
     border-bottom: 2px solid #EEE;
     color: #354052;
     padding: 0px 10px;
-    opacity: 0.5;
+    opacity: 0.8;
     -webkit-transition: 0.2s border-color, 0.2s opacity;
     transition: 0.2s border-color, 0.2s opacity;
 }
@@ -431,7 +436,9 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
     }
 }
 
-
+/*.center-card{
+  display: inline-block;
+}*/
 /* -- mobile nav -- */
 
 @media only screen and (max-width: 767px) {
@@ -1053,7 +1060,7 @@ header {
 }
 
 .team:hover .overlay {
-    opacity: 0.8;
+    opacity: 1;
 }
 
 .team .team-content {
@@ -1066,6 +1073,11 @@ header {
     margin-bottom: 10px;
     -webkit-transition: 0.2s color;
     transition: 0.2s color;
+}
+
+.info h3{
+  color: white;
+  padding-right: 40px;
 }
 
 .team .team-content span {
