@@ -263,14 +263,40 @@
     </div>
 </div>
 
+<br><div class="row">
+    <div class="col-md-11 text-right">
+    <div class="popup" onclick="Popup()">Legend
+  <span class="popuptext" id="myPopup">
+    <div style="color: #ff6698;">Most Important</div>
+    <div style="color: #ffb366;">Very Important</div>
+    <div style="color: #ffff66;">Moderately Important</div>
+    <div style="color: #98ff66;">Less Important</div>
+    <div style="color: #6698ff;">Least Important</div>
+    <div style="color: white;">Not Important</div>
+  </span>
+</div>
+
+
+    </div>
+</div>
+
 @include('modal');
 
-@if(!empty(Session::get('modal')) && Session::get('modal') == 'edit_task_modal')
+@if(!empty(Session::get('modal')))
+<!-- Modal Script -->
 <script>
 $(function() {
-    $('#edit_task_modal').modal('show');
+    $('#modal').modal('show');
 });
 </script>
 @endif
+
+<!-- Popup Script -->
+<script>
+    function Popup() {
+        var popup = document.getElementById("myPopup");
+        popup.classList.toggle("show");
+    }
+</script>
 
 @endsection

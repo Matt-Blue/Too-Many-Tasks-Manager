@@ -14,7 +14,7 @@ Route::get('/home/date_time', 'DashboardController@date_time')->name('date_time'
 Route::post('/create', 'DashboardController@create')->name('create');//create new task
 
 Route::get('/delete_check/{delete_id}', 'DashboardController@deleteCheck');//check before deletion
-Route::get('/delete/{task_id}', 'DashboardController@doDelete')->name('delete');//delete task 
+Route::post('/delete_task', 'DashboardController@doDeleteTask')->name('do_delete_task');//delete task 
 
 Route::get('/minus/{task_id}', 'DashboardController@minus')->name('minus');//decrement priority
 Route::get('/plus/{task_id}', 'DashboardController@plus')->name('plus');//increment priority

@@ -91,11 +91,16 @@ class DashboardController extends Controller
         return redirect()->back();
     }
 
-    public function deleteCheck($task_id){
-        session(['delete_id' => $task_id]);
-        return redirect()->back();
+    public function deleteCheck($task_id){//call are you sure? modal
+        session(['task_id' => $task_id]);
+        return Redirect::back()->with('modal', 'delete_task_modal');
+
+        // change delete button (old functionality)
+        // session(['delete_id' => $task_id]);
+        // return redirect()->back();
     }
-    public function doDelete($task_id){
+    public function doDeleteTask(Request $request){//delete task
+        $task_id = $request->get('task_id');
         DB::table('dashboards')->where('id', $task_id)->delete();
         return redirect()->back();
     }
