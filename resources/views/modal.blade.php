@@ -69,15 +69,23 @@
 
       <div class="modal-body">
         <?php
+          // Get task with session variable
           $task_id = session()->get('task_id');
           session()->forget('task_id');
-          $tasks = DB::table('dashboards')->where('id', $task_id)->get();
-          foreach($tasks as $task){
-            $task_name = $task->task_name;
-            $priority = $task->priority;
-            $date = $task->date;
-            $time = $task->time;
-          }
+          $task = \App\Task::find($task_id);
+          $task_name = $task->task_name;
+          $priority = $task->priority;
+          $date = $task->date;
+          $time = $task->time;
+
+          // Old way
+          // $tasks = DB::table('tasks')->where('id', $task_id)->get();
+          // foreach($tasks as $task){
+          //   $task_name = $task->task_name;
+          //   $priority = $task->priority;
+          //   $date = $task->date;
+          //   $time = $task->time;
+          // }
         ?>
         
         @if(Session::get('modal') == 'edit_task_modal')
@@ -124,7 +132,7 @@
             Time: {{ $display_time }}<br>
           </div>
           <!-- Delete Task Form -->
-          {!! Form::open(['route' => 'do_delete_task']) !!}
+          {!! Form::open(['route' => 'delete']) !!}
           {!! Form::hidden('task_id', $task_id) !!}
           {!! Form::submit('Delete', ['class' => 'btn btn-primary pull-right']) !!}
           {!! Form::close() !!}

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDashboardsTable extends Migration
+class CreateTasksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateDashboardsTable extends Migration
      */
     public function up()
     {
-        Schema::create('dashboards', function (Blueprint $table) {
+        Schema::create('tasks', function (Blueprint $table) {
             $table->bigIncrements('id')->unique();
             $table->bigInteger('user_id');
             $table->integer('priority');
@@ -30,6 +30,6 @@ class CreateDashboardsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dashboards');
+        Schema::dropIfExists('tasks');
     }
 }

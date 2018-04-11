@@ -13,39 +13,48 @@ use Carbon\Carbon;//datetime manipulation
 class DashboardController extends Controller
 {
 
-// SORTING
+    ///////////////////////////////////
+    //////////////SORTING//////////////
+    ///////////////////////////////////
 
-    public function index(){//base index page, changes based on preferences
-        $user_id = Auth::id();//gets user id
-        $p = DB::table('preferences')->get()->where('user_id', $user_id)->first();//query to get all tasks associated with current user
+    public function index(){// Default Index Page
+        // Retrieve preferences with user ID
+        $user_id = Auth::id();
+        $p = DB::table('preferences')->get()->where('user_id', $user_id)->first();
+        // If no preferences, set default
         if($p === NULL){
-            $tasks = DB::table('dashboards')->orderBy('priority', 'desc')->get()->where('user_id', $user_id);//default to sort by priority
-            return view('dashboard', compact('tasks'));//returns home view and passes the dashboard variable to it
+            $tasks = \App\Task::orderBy('priority', 'desc')->get()->where('user_id', $user_id);
+            return view('dashboard', compact('tasks'));
         }
+        // Else go to default route specified by user
         else{
-            //update existing preferences row
+            // Unserialize associative array containing preferences
             $to_unserialize = $p->preferences;
             $preference = unserialize($to_unserialize);
+            // Sort accordingly
             $sorting = $preference['sorting'];
             if($sorting == 'priority'){ return redirect()->route('priority'); }
             elseif($sorting == 'task_name'){ return redirect()->route('task_name'); }
             elseif($sorting == 'date_time'){ return redirect()->route('date_time'); }
         }
+        
+        $tasks = \App\Task::all();
+        return $tasks;
     }
     public function priority(){//sort by priority (descending)
         $user_id = Auth::id();
-        $tasks = DB::table('dashboards')->orderBy('priority', 'desc')->get()->where('user_id', $user_id);//sort by descending priority
+        $tasks = \App\Task::orderBy('priority', 'desc')->get()->where('user_id', $user_id);
         return view('dashboard', compact('tasks'));
     }
     public function task_name(){//sort by task name (ascending)
         $user_id = Auth::id();
-        $tasks = DB::table('dashboards')->orderBy('task_name', 'asc')->get()->where('user_id', $user_id);//sort by ascending task name
+        $tasks = \App\Task::orderBy('task_name', 'asc')->get()->where('user_id', $user_id);//sort by ascending task name
         return view('dashboard', compact('tasks'));
     }
     public function date_time(){//sort by date & time (ascending)
         $user_id = Auth::id();
-        $nonNull = DB::table('dashboards')->orderBy('date', 'asc')->whereNotNull('date')->get()->where('user_id', $user_id);//sort by ascending date if NOT NULL
-        $null = DB::table('dashboards')->whereNull('date')->get()->where('user_id', $user_id);//get NULL date
+        $nonNull = \App\Task::orderBy('date', 'asc')->whereNotNull('date')->get()->where('user_id', $user_id);//sort by ascending date if NOT NULL
+        $null = \App\Task::whereNull('date')->get()->where('user_id', $user_id);//get NULL date
         $tasks = $nonNull->merge($null);//merge two queries, null dates after non-null dates
         return view('dashboard', compact('tasks'));
     }
@@ -93,7 +102,7 @@ class DashboardController extends Controller
 
     public function deleteCheck($task_id){//call are you sure? modal
         session(['task_id' => $task_id]);
-        return Redirect::back()->with('modal', 'delete_task_modal');
+        return Redirect::back()->with('modal', 'delete_modal');
 
         // change delete button (old functionality)
         // session(['delete_id' => $task_id]);
@@ -143,7 +152,7 @@ class DashboardController extends Controller
 
     public function editTask($task_id){
         session(['task_id' => $task_id]);
-        return Redirect::back()->with('modal', 'edit_task_modal');
+        return Redirect::back()->with('modal', 'edit_modal');
     }
     public function doEditTask(Request $request){//edit task
         //todo make errors array and do form validation

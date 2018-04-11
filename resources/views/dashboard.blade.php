@@ -10,6 +10,9 @@
     $p = DB::table('preferences')->get()->where('user_id', $user_id)->first();//query to get all tasks associated with current user
     if($p === NULL){
         $coloring = 'cell';
+        $p_col = 1;
+        $n_col = 1;
+        $d_col = 1;
     }
     else{
         //update existing preferences row
