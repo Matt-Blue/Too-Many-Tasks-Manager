@@ -121,7 +121,7 @@
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
                             <li><a href="{{ route('home') }}">Dashboard</a></li>
-                            <li><a href="{{ route('preferences') }}">Settings</a></li>
+                            <li><a href="{{ route('settingsCheck') }}">Settings</a></li>
                             <li><a href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">

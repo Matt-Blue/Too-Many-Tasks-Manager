@@ -37,5 +37,5 @@ Route::get('/priority_down/{task_id}', 'TaskController@priority_down')->name('pr
 Route::get('/date_up/{task_id}', 'TaskController@date_up')->name('date_up');//increment date
 Route::get('/date_down/{task_id}', 'TaskController@date_down')->name('date_down');//decrement date
 
-Route::get('/preferences', 'TaskController@editPreferences')->name('preferences');//preferences page
-Route::post ('/preferences/post', 'TaskController@doEditPreferences')->name('do_preferences');//preferences page
+Route::get('/settings', 'SettingsController@settingsCheck')->name('settingsCheck');//settings page
+Route::post ('/settings/post', 'SettingsController@settings')->name('settings');//edit settings
