@@ -77,21 +77,12 @@
           $priority = $task->priority;
           $date = $task->date;
           $time = $task->time;
-
-          // Old way
-          // $tasks = DB::table('tasks')->where('id', $task_id)->get();
-          // foreach($tasks as $task){
-          //   $task_name = $task->task_name;
-          //   $priority = $task->priority;
-          //   $date = $task->date;
-          //   $time = $task->time;
-          // }
         ?>
         
         @if(Session::get('modal') == 'edit_task_modal')
           
           <!-- EDIT TASK FORM -->
-          {!! Form::open(['route' => 'do_edit_task']) !!}
+          {!! Form::open(['route' => 'edit']) !!}
           <div class="form-group">
               {!! Form::label('task_name', 'Task Name') !!}
               {!! Form::text('task_name', $task_name, ['class' => 'form-control']) !!}

@@ -25,17 +25,17 @@ Route::get('/home/date_time', 'DashboardController@date_time')->name('date_time'
 // Task Controller
 Route::post('/create', 'TaskController@create')->name('create');//create new task
 
-Route::get('/delete_check/{delete_id}', 'TaskController@deleteCheck');//check before deletion
+Route::get('/delete_check/{delete_id}', 'TaskController@deleteCheck')->name('deleteCheck');//check before deletion
 Route::post('/delete_task', 'TaskController@delete')->name('delete');//delete task 
 
-Route::get('/minus/{task_id}', 'TaskController@minus')->name('minus');//decrement priority
-Route::get('/plus/{task_id}', 'TaskController@plus')->name('plus');//increment priority
+Route::get('/edit_task/{task_id}', 'TaskController@editCheck')->name('editCheck');//edit task modal
+Route::post('/edit_task', 'TaskController@edit')->name('edit');//edit task
 
-Route::get('/subtract/{task_id}', 'TaskController@subtract')->name('minus');//decrement date
-Route::get('/add/{task_id}', 'TaskController@add')->name('plus');//increment date
+Route::get('/priority_up/{task_id}', 'TaskController@priority_up')->name('priority_up');//increment priority
+Route::get('/priority_down/{task_id}', 'TaskController@priority_down')->name('priority_down');//decrement priority
 
-Route::get('/edit_task/{task_id}', 'TaskController@editTask')->name('edit_task');//edit task modal
-Route::post('/edit_task', 'TaskController@doEditTask')->name('do_edit_task');//edit task
+Route::get('/date_up/{task_id}', 'TaskController@date_up')->name('date_up');//increment date
+Route::get('/date_down/{task_id}', 'TaskController@date_down')->name('date_down');//decrement date
 
 Route::get('/preferences', 'TaskController@editPreferences')->name('preferences');//preferences page
 Route::post ('/preferences/post', 'TaskController@doEditPreferences')->name('do_preferences');//preferences page

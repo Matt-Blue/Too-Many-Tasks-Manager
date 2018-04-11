@@ -149,7 +149,7 @@
                             <center>
                                 <div class="pull-left" id="pad">
                                 <?php if ($priority_color > 0){ ?>
-                                    <a href="{{ url('/minus/'.$task->id) }}"><span class="glyphicon glyphicon-minus" style="color:black; font-size: 0.75em;"></span></a>
+                                    <a href="{{ url('/priority_down/'.$task->id) }}"><span class="glyphicon glyphicon-minus" style="color:black; font-size: 0.75em;"></span></a>
                                 <?php }else{ ?>
                                     <span class="glyphicon glyphicon-asterisk" style="color:black; font-size: 0.75em;"></span>
                                 <?php } ?>
@@ -159,7 +159,7 @@
 
                                 <div class="pull-right" id="pad">
                                 <?php if ($priority_color < 5){ ?>
-                                    <a href="{{ url('/plus/'.$task->id) }}"> <span class="glyphicon glyphicon-plus" style="color:black; font-size: 0.75em;"></span></a>
+                                    <a href="{{ url('/priority_up/'.$task->id) }}"> <span class="glyphicon glyphicon-plus" style="color:black; font-size: 0.75em;"></span></a>
                                 <?php }else{ ?>
                                     <span class="glyphicon glyphicon-asterisk" style="color:black; font-size: 0.75em;"></span>
                                 <?php } ?>
@@ -211,7 +211,7 @@
                                 <center>
                                     <?php if ($task->date != NULL){ ?>
                                         <div class="pull-left" id="pad">
-                                            <a href="{{ url('/subtract/'.$task->id) }}"><span class="glyphicon glyphicon-minus" style="color:black; font-size: 0.75em;"></span></a>
+                                            <a href="{{ url('/date_down/'.$task->id) }}"><span class="glyphicon glyphicon-minus" style="color:black; font-size: 0.75em;"></span></a>
                                         </div>
                                     <?php } ?>
 
@@ -221,7 +221,7 @@
                                     
                                     <?php if ($task->date != NULL){ ?>
                                         <div class="pull-right" id="pad">
-                                            <a href="{{ url('/add/'.$task->id) }}"> <span class="glyphicon glyphicon-plus" style="color:black; font-size: 0.75em;"></span></a>
+                                            <a href="{{ url('/date_up/'.$task->id) }}"> <span class="glyphicon glyphicon-plus" style="color:black; font-size: 0.75em;"></span></a>
                                         </div>
                                     <?php } ?>
 
