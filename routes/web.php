@@ -47,7 +47,7 @@ Route::post ('/preferences/post', 'TaskController@doEditPreferences')->name('do_
 
 
 Route::get('send_test_email', function(){
-    Mail::raw('Sending emails with Mailgun and Laravel is easy!', function($message)
+    Mail::raw('task_name', function($message)
     {
         $message->to('migrepereira@gmail.com');
     });
