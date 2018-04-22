@@ -10,25 +10,33 @@
 
     <title>TMTM</title>
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
     <!--Bootstrap-->
+    <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css">
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    
+    <script type='text/javascript' src='http://code.jquery.com/jquery-1.10.1.js'></script>
+    <script type='text/javascript' src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    
     <!-- Pop Legend -->
     <style>
+        
     /* Popup container - can be anything you want */
-    .popup {
+    #pop {
         position: relative;
         display: inline-block;
         cursor: pointer;
@@ -39,20 +47,22 @@
     }
 
     /* The actual popup */
-    .popup .popuptext {
+    #pop .popuptext {
         visibility: hidden;
-        width: 160px;
-        background-color: #555;
-        color: #fff;
+/*        width: 160px;*/
+/*        background-color: #555 !important;*/
+/*        color: #555;*/
         text-align: center;
-        border-radius: 6px;
-        padding: 8px 0;
-        position: absolute;
-        z-index: 1;
-        bottom: 125%;
-        left: 50%;
-        margin-left: -80px;
+/*        border-radius: 6px;*/
+/*        padding: 8px 0;*/
+/*        position: absolute;*/
+/*        z-index: 1;*/
+/*        bottom: 125%;*/
+/*        left: 50%;*/
+/*        margin-left: -80px;*/
     }
+        
+        
 
     /* Popup arrow */
     .popup .popuptext::after {
@@ -60,10 +70,10 @@
         position: absolute;
         top: 100%;
         left: 50%;
-        margin-left: -5px;
-        border-width: 5px;
+/*        margin-left: -5px;*/
+/*        border-width: 5px;*/
         border-style: solid;
-        border-color: #555 transparent transparent transparent;
+        border-color: #666 transparent transparent transparent;
     }
 
     /* Toggle this class - hide and show the popup */
@@ -102,7 +112,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand" href="{{ route('welcome') }}">
                         TMTM
                     </a>
                 </div>
@@ -121,7 +131,7 @@
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
                             <li><a href="{{ route('home') }}">Dashboard</a></li>
-                            <li><a href="{{ route('preferences') }}">Settings</a></li>
+                            <li><a href="{{ route('settingsCheck') }}">Settings</a></li>
                             <li><a href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">

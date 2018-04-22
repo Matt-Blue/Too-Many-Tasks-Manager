@@ -3,10 +3,10 @@
 
 // All routes lie below for the web application
 // API routes lie in the api.php file
-
+use App\Mail\SendMail;
 
 // Default View
-Route::get('/', function () { return view('welcome'); });
+Route::get('/', function () { return view('welcome'); })->name('welcome');
 
 
 // Authorization
@@ -37,20 +37,12 @@ Route::get('/priority_down/{task_id}', 'TaskController@priority_down')->name('pr
 Route::get('/date_up/{task_id}', 'TaskController@date_up')->name('date_up');//increment date
 Route::get('/date_down/{task_id}', 'TaskController@date_down')->name('date_down');//decrement date
 
-Route::get('/preferences', 'TaskController@editPreferences')->name('preferences');//preferences page
-Route::post ('/preferences/post', 'TaskController@doEditPreferences')->name('do_preferences');//preferences page
+Route::get('/settings', 'SettingsController@settingsCheck')->name('settingsCheck');//settings page
+Route::post ('/settings/post', 'SettingsController@settings')->name('settings');//edit settings
 
 
+Route::get('mail/send', 'MailController@send');
 
 
-// Test email
-
-
-Route::get('send_test_email', function(){
-    Mail::raw('task_name', function($message)
-    {
-        $message->to('migrepereira@gmail.com');
-    });
-});
 
 

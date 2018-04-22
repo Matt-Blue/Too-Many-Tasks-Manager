@@ -1,16 +1,41 @@
 #black{
     color: black;
 }
+/*
 .sharp {
     border-radius:0;
 }
+*/
+/*
 * {
     border-radius: 0 !important;
-    /* makes all buttons have sharp edges */
+     makes all buttons have sharp edges
 }
-table, th, td {
-    border: 0.10em solid black;
+*/
+
+/*
+.content{
+    background-image: url('./octo.jpg');
+   background-color: #cccccc;
+}
+*/
+
+body {
+   
+   background-color: #F4F4F4;
+}
+table, td {
+    border: 0.10em solid white;
     font-size: 1.25em;
+}
+
+
+tr{
+    height: 30px;
+}
+
+tr.text{
+    font-size: 20px !important;
 }
 #pad{
     padding-right: 0.5em;
@@ -19,3 +44,39 @@ table, th, td {
 #dbpad{
     padding-left: 1.5em;
 }
+
+
+.popover,
+.tooltip {
+    font-family: Raleway, sans-serif;
+    font-weight: 400;
+    line-break: auto;
+    line-height: 1.6;
+
+}
+
+
+.glyphicon.glyphicon-info-sign{
+    font-size: 35px;
+    top: 550px !important;
+    left: 20px;
+    color: grey;
+}
+
+.popover{
+    background: grey !important;
+    width: 175px;
+        }
+
+.popover > .arrow:after {
+/*  background-color: #666 !important;*/
+    border-color: grey !important;
+}
+
+tr.headr{
+    background-color: #FFF !important;
+    border: 0.2em solid white;
+    border-right: 0;
+    
+}
+

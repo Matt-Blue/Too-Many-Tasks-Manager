@@ -107,11 +107,19 @@
           
           <!-- PHP date and time conversions -->
           <?php
-            $to_date = strtotime($date);
-            $display_date = date('n/d/Y', $to_date);
+            if($date){
+              $to_date = strtotime($date);
+              $display_date = date('n/d/Y', $to_date);
+            }else{
+              $display_date = '';
+            }
 
-            $to_time = strtotime($time);
-            $display_time = date("g:i A", $to_time);
+            if($time){
+              $to_time = strtotime($time);
+              $display_time = date("g:i A", $to_time);
+            }else{
+              $display_time = '';
+            }
           ?>
 
           <!-- Delete Task Modal Info -->

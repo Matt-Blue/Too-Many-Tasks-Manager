@@ -15,7 +15,7 @@ return [
     |            "sparkpost", "log", "array"
     |
     */
-// Change driver
+
     'driver' => env('MAIL_DRIVER', 'mailgun'),
 
     /*
@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'migrepereira@gmail.com'),
+        'name' => env('MAIL_FROM_NAME', 'TMTM team'),
     ],
 
     /*
@@ -84,9 +84,9 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME'),
+    'username' => env('migrepereira@gmail.com'),
 
-    'password' => env('MAIL_PASSWORD'),
+    'password' => env('hdcdcpzfyhrmktse'),
 
     /*
     |--------------------------------------------------------------------------
